@@ -294,6 +294,7 @@
     <string name="profile_lockmode_insecure_summary">No pedir PIN o contraseña</string>
     <string name="profile_lockmode_disabled_summary">Desactivar la pantalla de bloqueo</string>
     <string name="profile_airplanemode_title">Modo avión</string>
+    <string name="profile_autobrightness_title">Brillo automático</string>
     <string name="profile_brightness_title">Brillo de la pantalla</string>
     <string name="profile_brightness_override_summary">Establecer a %1$d%%</string>
     <string name="profile_brightness_override_checkbox_label">Modificar brillo</string>
