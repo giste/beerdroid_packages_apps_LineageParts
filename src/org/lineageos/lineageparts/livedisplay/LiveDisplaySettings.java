@@ -1,6 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2015 The CyanogenMod Project
- * SPDX-FileCopyrightText: 2017-2023 The LineageOS Project
+ * SPDX-FileCopyrightText: 2017-2024 The LineageOS Project
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.lineageos.lineageparts.livedisplay;
@@ -21,7 +21,7 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -106,8 +106,8 @@ public class LiveDisplaySettings extends SettingsPreferenceFragment implements S
 
     private ListPreference mLiveDisplay;
 
-    private SwitchPreference mOutdoorMode;
-    private SwitchPreference mReadingMode;
+    private SwitchPreferenceCompat mOutdoorMode;
+    private SwitchPreferenceCompat mReadingMode;
 
     private DisplayTemperature mDisplayTemperature;
 
@@ -238,13 +238,13 @@ public class LiveDisplaySettings extends SettingsPreferenceFragment implements S
             mReadingMode.setOnPreferenceChangeListener(this);
         }
 
-        SwitchPreference lowPower = findPreference(KEY_LIVE_DISPLAY_LOW_POWER);
+        SwitchPreferenceCompat lowPower = findPreference(KEY_LIVE_DISPLAY_LOW_POWER);
         if (advancedPrefs != null && lowPower != null
                 && !config.hasFeature(FEATURE_CABC)) {
             advancedPrefs.removePreference(lowPower);
         }
 
-        SwitchPreference colorEnhancement = findPreference(KEY_LIVE_DISPLAY_COLOR_ENHANCE);
+        SwitchPreferenceCompat colorEnhancement = findPreference(KEY_LIVE_DISPLAY_COLOR_ENHANCE);
         if (advancedPrefs != null && colorEnhancement != null
                 && !config.hasFeature(FEATURE_COLOR_ENHANCEMENT)) {
             advancedPrefs.removePreference(colorEnhancement);
@@ -262,7 +262,7 @@ public class LiveDisplaySettings extends SettingsPreferenceFragment implements S
             advancedPrefs.removePreference(misplayColor);
         }
 
-        SwitchPreference antiFlicker = findPreference(KEY_LIVE_DISPLAY_ANTI_FLICKER);
+        SwitchPreferenceCompat antiFlicker = findPreference(KEY_LIVE_DISPLAY_ANTI_FLICKER);
         if (liveDisplayPrefs != null && antiFlicker != null &&
                 !mHardware.isSupported(LineageHardwareManager.FEATURE_ANTI_FLICKER)) {
             liveDisplayPrefs.removePreference(antiFlicker);
